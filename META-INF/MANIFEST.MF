@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eggobase
+Bundle-SymbolicName: Eggobase
+Bundle-Version: 1.0.0.qualifier
+Export-Package: demoEgg
