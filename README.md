@@ -16,6 +16,7 @@
     - All required libs
     - environment vars
     - PostgreSQL
+        - Migrations with Flyway (or something)
 - ...to make a CI/CD pipeline
 - Deploy to GCP in an automated manner
 
