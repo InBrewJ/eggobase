@@ -1,24 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>A New Egg is born! &#129370;</title>
-<%@ include file="includes.html"%>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:import url="header.jsp">
+	<c:param name="headerTitle" value="&#129370 | Good Egg!"></c:param>
+</c:import>
 
-	<%@ include file="header.html"%>
+<div class="ui container">
 
-	<div class="ui container">
+	<h2>Egg received!</h2>
+	<h3>
+		<%=request.getAttribute("eggSuccess")%>
+	</h3>
 
-		<h2>Egg received!</h2>
-		<h3>
-			<%= request.getAttribute("eggSuccess")%>
-		</h3>	
+</div>
 
-	</div>
-
-</body>
-</html>
+<c:import url="footer.jsp"></c:import>
