@@ -46,7 +46,7 @@ public class SendMail {
 			System.out.println("Setting subject...");
 			msg.setSubject("Hello from the Eggobase!");
 			System.out.println("Setting text...");
-			msg.setText("Don't eat the rich, eat eggs");
+			msg.setText("Eggs are like a box of chocolates, you never know what you're going to get.");
 			System.out.println("Setting from...");
 			msg.setFrom(new InternetAddress(sender, senderPrettyName));
 			System.out.println("Setting to...");
