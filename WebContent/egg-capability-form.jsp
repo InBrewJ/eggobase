@@ -3,7 +3,7 @@
 	<c:param name="headerTitle" value="&#129370 | How do you egg?"></c:param>
 </c:import>
 
-<div class="ui container">
+<div class="ui container" style="min-height: 60vh">
 
 	<h3>How many eggs can you handle?</h3>
 

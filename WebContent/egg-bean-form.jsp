@@ -3,7 +3,7 @@
 	<c:param name="headerTitle" value="&#129370 | Tell"></c:param>
 </c:import>
 
-<div class="ui container">
+<div class="ui container" style="min-height: 60vh">
 
 	<p>Tell me about your egg?</p>
 

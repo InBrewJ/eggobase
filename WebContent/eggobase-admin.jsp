@@ -3,7 +3,7 @@
 	<c:param name="headerTitle" value="&#129370 | EGG CRACKING ZONE!"></c:param>
 </c:import>
 
-	<div class="ui text container">
+	<div class="ui text container"  style="min-height: 60vh">
 		<h1 class="first">&#9888; &#9888; &#9888; Danger Zone
 			&#9888; &#9888; &#9888;</h1>
 		<form action="/Eggobase/Controller" method="post">

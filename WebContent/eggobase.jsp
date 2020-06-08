@@ -9,7 +9,7 @@
 		return "Here are " + totalEggs + " internet eggs";
 	}%>
 
-<div style="margin: 2em 0em;" class="ui container">
+<div style="margin: 2em 0em; min-height: 60vh" class="ui container">
 	<div class="ui two column grid">
 		<div class="column">
 			<div class="ui two column grid">
