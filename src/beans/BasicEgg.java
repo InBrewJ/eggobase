@@ -53,5 +53,9 @@ public class BasicEgg {
 
 		return true;
 	}
+	
+	public String getInfo() {
+		return "I AM AN EGG";
+	}
 
 }
