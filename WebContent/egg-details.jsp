@@ -3,7 +3,7 @@
 	<c:param name="headerTitle" value="&#129370 | Good Egg!"></c:param>
 </c:import>
 
-<div class="ui container">
+<div class="ui container" style="min-height: 60vh">
 
 	<h2>Egg received!</h2>
 	<h3>

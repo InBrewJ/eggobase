@@ -73,8 +73,8 @@ public class Controller extends HttpServlet {
 			action = "default";
 
 		switch (action) {
-		case "submitNewEgg":
-			request.getRequestDispatcher("/Eggobase/EggDetails.jsp").forward(request, response);
+		case "enterShell":
+			request.getRequestDispatcher("/under-shell.jsp").forward(request, response);
 			break;
 		case "submitEggConfidence":
 			out.println("You can handle " + request.getParameter("numEggsCanHandle") + " eggs");
