@@ -1,5 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fcn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="eb"%>
 
 <c:import url="header.jsp">
 	<c:param name="headerTitle" value="&#129370 | This Egg"></c:param>
@@ -9,7 +12,8 @@
 
 	<sql:setDataSource var="ds" dataSource="jdbc/eggobase" />
 	<sql:query dataSource="${ds}"
-		sql="SELECT * FROM public.eggs where id::varchar = ?" var="results">
+		sql="SELECT * FROM public.eggs where id::varchar = ? LIMIT 1"
+		var="results">
 		<sql:param>${param.eggId}</sql:param>
 	</sql:query>
 
@@ -17,14 +21,21 @@
 
 	<div class="ui card">
 		<div class="content">
-			<p>This egg is ${egg.color}</p>
+			<p>This egg is ${fcn:toUpperCase(egg.color)}</p>
 		</div>
 		<div class="image">
 			<img src="https://source.unsplash.com/1600x900/?nature,${egg.color}"
-							alt="egg-img-${egg.color}" />
+				alt="egg-img-${egg.color}" />
 		</div>
 		<div class="content">
-			<span class="left floated"> EMOTIVE SCENE </span>
+			<span class="left floated"> ${fcn:toUpperCase("emotive scene")}
+			</span>
+		</div>
+	</div>
+
+	<div class="ui card">
+		<div class="content">
+			<p>Quality: <fmt:formatNumber value="${egg.quality}" minFractionDigits="2"/></p>
 		</div>
 	</div>
 

@@ -1,13 +1,16 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -95,6 +98,8 @@ public class Controller extends HttpServlet {
 		String action = request.getParameter("action");
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
+		ServletContext context = this.getServletContext();
+		RequestDispatcher uploadDispatcher = context.getRequestDispatcher("/EggUploader");
 
 		try {
 			conn = ds.getConnection();
@@ -152,6 +157,9 @@ public class Controller extends HttpServlet {
 				break;
 			case "submitEggConfidence":
 				out.println("You can handle " + request.getParameter("numEggsCanHandle") + " eggs");
+				break;
+			case "eggUpload":
+				uploadDispatcher.forward(request, response);
 				break;
 			default:
 				request.getRequestDispatcher("/").forward(request, response);
