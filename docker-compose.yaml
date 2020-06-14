@@ -3,10 +3,9 @@ version: '3'
 services:
   postgres:
     container_name: postgres
-    privileged: true
     image: postgres
     environment:
-      - HOSTNAME=$HOSTNAME
+      - HOSTNAME=postgres
     ports:
       - 5432:5432
     volumes:
@@ -16,7 +15,6 @@ services:
     container_name: tomcat-eggobase
     image: tomcat-eggobase
     build: .
-    privileged: true
     depends_on: 
       - postgres
     ports:
