@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o kompose-factory
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: tomcat-eggobase
+  name: tomcat-eggobase
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: 8080
+  selector:
+    io.kompose.service: tomcat-eggobase
+status:
+  loadBalancer: {}

@@ -13,7 +13,7 @@ services:
     restart: always
   tomcat-eggobase:
     container_name: tomcat-eggobase
-    image: tomcat-eggobase
+    image: inbrewj/tomcat-eggobase
     build: .
     depends_on: 
       - postgres
