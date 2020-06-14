@@ -7,6 +7,11 @@
     - And Java 8+ serverside development in general
 - It also serves as a reference of how to build simple stuff using Java + PostgreSQL
 
+## Generating the WAR
+
+(I need to figure out to to replace the * [star] with)
+- `jar -cvf Eggobase.war *`
+
 ## Building the docker image
 
 The docker image must include the JSTL/mail jars!
