@@ -22,7 +22,6 @@ public class SendMail {
 		String senderPrettyName = System.getenv("EGGOBASE_EMAIL_SENDER_PRETTY_NAME");
 		String senderPw = System.getenv("EGGOBASE_EMAIL_SENDER_PW");
 		
-		
 		props.setProperty("mail.host", host);
 		props.setProperty("mail.smtp.port", port);
 		props.setProperty("mail.smtp.auth", "true");
@@ -43,15 +42,10 @@ public class SendMail {
 		System.out.println("Sending email...");
 		
 		try {
-			System.out.println("Setting subject...");
 			msg.setSubject("Hello from the Eggobase!");
-			System.out.println("Setting text...");
-			msg.setText("Eggs are like a box of chocolates, you never know what you're going to get.");
-			System.out.println("Setting from...");
+			msg.setText("You are 100% egg!");
 			msg.setFrom(new InternetAddress(sender, senderPrettyName));
-			System.out.println("Setting to...");
 			msg.setRecipient(Message.RecipientType.TO, new InternetAddress("jason.brewer101@gmail.com"));
-			System.out.println("Sending mail...");
 			Transport.send(msg);
 		} catch (UnsupportedEncodingException | MessagingException e) {
 			// TODO Auto-generated catch block

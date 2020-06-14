@@ -7,6 +7,16 @@
     - And Java 8+ serverside development in general
 - It also serves as a reference of how to build simple stuff using Java + PostgreSQL
 
+## Building the docker image
+
+The docker image must include the JSTL/mail jars!
+
+- `docker build -t tomcat-eggobase .`
+
+## Running through Docker
+
+- `docker run -p 80:8080 tomcat-eggobase`
+
 ## Vague future plan
 
 - JUnit
