@@ -13,9 +13,9 @@ services:
       - $HOME/docker/volumes/postgres:/var/lib/postgresql/data
     restart: always
   eggobase-tomcat:
-    container_name: eggobase-tomcat
+    container_name: tomcat-eggobase
+    build: .
     privileged: true
-    network_mode: host
     image: "lushdigital/lushroom-display:latest"
     ports:
       - 80:8080

@@ -15,7 +15,14 @@ The docker image must include the JSTL/mail jars!
 
 ## Running through Docker
 
-- `docker run -p 80:8080 tomcat-eggobase`
+If you have postgres running in a non-networked way through docker
+
+- `docker run --network host -p 80:8080 tomcat-eggobase`
+
+## Running through compose
+
+- `docker-compose build && docker-compose up -d`
+
 
 ## Vague future plan
 
