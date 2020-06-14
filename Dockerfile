@@ -2,17 +2,17 @@ FROM tomcat:8.5-alpine
 LABEL maintainer="jason@urawizard.com"
 
 # Java Mail
-ADD dsn.jar /usr/local/tomcat/lib
-ADD imap.jar /usr/local/tomcat/lib  
-ADD mailapi.jar /usr/local/tomcat/lib 
-ADD pop3.jar /usr/local/tomcat/lib  
-ADD smtp.jar /usr/local/tomcat/lib
+ADD jars/dsn.jar /usr/local/tomcat/lib
+ADD jars/imap.jar /usr/local/tomcat/lib  
+ADD jars/mailapi.jar /usr/local/tomcat/lib 
+ADD jars/pop3.jar /usr/local/tomcat/lib  
+ADD jars/smtp.jar /usr/local/tomcat/lib
 
 # JSTL
-ADD jstl-1.2.jar /usr/local/tomcat/lib
+ADD jars/jstl-1.2.jar /usr/local/tomcat/lib
 
 # Postgres
-ADD postgresql-42.2.12.jar /usr/local/tomcat/lib
+ADD jars/postgresql-42.2.12.jar /usr/local/tomcat/lib
 
 # Tomcat context for this app (includes to JNDI connection details for postgres!)
 ADD context.xml /usr/local/tomcat/conf
@@ -20,5 +20,9 @@ ADD context.xml /usr/local/tomcat/conf
 # Add the build
 ADD Eggobase.war /usr/local/tomcat/webapps/
 
+# Environment
+ADD ash-set-env.sh /usr/local/tomcat/bin
+ADD docker-start.sh /usr/local/tomcat/bin
+
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+CMD ["docker-start.sh"]

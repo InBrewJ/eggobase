@@ -29,7 +29,7 @@
     -->
     <Resource name="jdbc/eggobase" auth="Container"
           type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
-          url="jdbc:postgresql://127.0.0.1:5432/eggobase"
+          url="jdbc:postgresql://${db.host}:${db.port}/${db.name}"
           username="postgres" password="docker" maxTotal="20" maxIdle="10"
 	      maxWaitMillis="-1"/>
 </Context>
