@@ -6,6 +6,7 @@
 - It serves as a medium to learn about Servlets, JSPs and JSTL
     - And Java 8+ serverside development in general
 - It also serves as a reference of how to build simple stuff using Java + PostgreSQL
+- And, to boot, it serves as a playground for building CI/CD pipelines with zero consequences
 
 ## Generating the WAR
 
