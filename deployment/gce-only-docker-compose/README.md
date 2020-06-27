@@ -7,6 +7,9 @@ Uses GCE only, all we're doing is running the docker-compose file on a VM with p
 Setting up literally one vm:
 
 - `gcloud deployment-manager deployments create eggobase-gce-only --config vm.yaml`
+
+Machine 'provisioning'
+
 - To install docker on the vm
     - https://github.com/docker/docker-install
     - `curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh`
@@ -22,6 +25,15 @@ Monitor:
 Setting firewall rules:
 
 - `gcloud compute firewall-rules create allow-80 --allow tcp:80`
+
+Make ephephemeral IP static:
+
+- https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address#gcloud_3
+```
+gcloud compute addresses create eggobase-tomcat \
+  --addresses $THE_VM_EXTERNAL_IP \
+  --region us-central1	 
+```
 
 Tear down:
 
