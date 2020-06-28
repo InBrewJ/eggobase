@@ -18,7 +18,7 @@ ADD jars/postgresql-42.2.12.jar /usr/local/tomcat/lib
 ADD context.xml /usr/local/tomcat/conf
 
 # Add the build
-ADD Eggobase.war /usr/local/tomcat/webapps/
+ADD ./builder/out/Eggobase.war /usr/local/tomcat/webapps/
 
 # Environment
 ADD ash-set-env.sh /usr/local/tomcat/bin

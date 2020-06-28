@@ -1,17 +1,22 @@
-# This intentionally mimics the flow of a makefile or Ant 'build.xml'
+#!/bin/sh
+
+# This intentionally (badly) mimics the flow of a makefile or Ant 'build.xml'
+# Alas, the pursuit of learning!
 
 # Vars
-JAVAC=/usr/lib/jvm/jdk1.8.0_202/bin/javac
+JAVAC=javac
 SRC_DIR=./src
 LOCAL_LIBS=./jars
 STATIC_FILES=./WebContent
 ARCHIVE_DIR=./warOut
 CLASS_OUT=$ARCHIVE_DIR/WEB-INF/classes
 OUT_WAR=./Eggobase.war
+BUILDER_OUT=./out
 
 # clean
 rm -f $OUT_WAR
 rm -rf $ARCHIVE_DIR
+mkdir $BUILDER_OUT
 mkdir $ARCHIVE_DIR
 mkdir -p $CLASS_OUT
 
@@ -27,6 +32,8 @@ $JAVAC \
 
 # package
 jar -cvf $OUT_WAR -C $ARCHIVE_DIR/ .
+
+cp $OUT_WAR $BUILDER_OUT
 
 # remove archive dir again
 rm -rf $ARCHIVE_DIR

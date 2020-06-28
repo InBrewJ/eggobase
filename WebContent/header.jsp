@@ -15,7 +15,7 @@
 	<%@ include file="header.html"%>
 	
 	<div class="ui text container">
-		<h1 class="first">&#129370; &#129370; &#129370; PURE and SIMPLE,
+		<h1 class="first">&#129370; &#129370; &#129370; Pure and SIMPLY SIMPLE,
 			lots of eggs here &#129370; &#129370; &#129370;</h1>
 		<p>
 			Simply the best place to egg out | Over
