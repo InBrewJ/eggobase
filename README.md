@@ -8,10 +8,54 @@
 - It also serves as a reference of how to build simple stuff using Java + PostgreSQL
 - And, to boot, it serves as a playground for building CI/CD pipelines with zero consequences
 
+## Current state of CD pipeline
+
+- At present, the compile + build + run step is encapsulated within these steps:
+
+```
+docker-compose down && ./build-in-docker.sh && docker-compose build && docker-compose up -d
+```
+
+- `docker-compose down` -> stop what's running
+- `./build-in-docker.sh` -> compile the java into classes, create a WAR archive for Tomcat, put the WAR in a directory so the next stage can find it
+- `docker-compose build` -> use the WAR from the previous step to create a new version of Eggobase
+- `docker-compose up -d` -> start the new version
+
+Hopefully, a CD machine somewhere can do each of these steps. `docker-compose [up | down]` serve as placeholders for what would happen on the server that actually runs the app. 
+
 ## Generating the WAR
 
-(I need to figure out to to replace the * [star] with)
-- `jar -cvf Eggobase.war *`
+- Inspiration from:
+    - http://employees.oneonta.edu/higgindm/internet%20programming/Deploying_WebApps_With_Ant.htm
+    - https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
+---
+- We create the `Eggobase.war` from the .java files, JSPs, html, tags, web.xml etc
+- A `.war` is just a zip archive, nothing more
+- We archive all files in the /warOut directory
+- The main point is:
+    - Compiled classes go in `/warOut/WEB_INF/classes`
+    - web.xml goes in `/warOut/WEB_INF`
+    - .jsp, .txt, .html go in `/warOut`
+    - `/warOut/META-INF/MANIFEST.MF` must exist
+- So, we compile the java with the correct classpath(s)
+- And copy the static files into the format Tomcat 8.5 expects
+
+### Manually (with javac + -cp)
+
+- See `./build-w-javac.sh`
+
+### With Ant
+
+#### Installing Ant
+
+- `sudo apt update && sudo apt -y install ant && ant -version`
+
+#### Ant in Docker
+
+- `docker pull frekele/ant` can help
+- build.xml pending...
+
+---
 
 ## Building the docker image
 
@@ -47,6 +91,8 @@ If you have postgres running in a non-networked way through docker
 - `minikube dashboard` (to see what inevitably went wrong)
 - `kubectl get deployment,svc,pods` get details
 - Rage quit: `minikube delete --all`
+
+---
 
 ## Vague future plan
 

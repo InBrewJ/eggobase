@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:import url="header.jsp">
-	<c:param name="headerTitle" value="&#129370 | Home"></c:param>
+	<c:param name="headerTitle" value="&#129370 | Home of Egg"></c:param>
 </c:import>
 
-<%!private int totalEggs = 6;
+<%!private int totalEggs = 3;
 
 	private String allOfTheEggs() {
 		return "Here are " + totalEggs + " internet eggs";
