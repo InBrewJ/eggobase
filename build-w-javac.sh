@@ -24,9 +24,7 @@ javac \
     $(find $SRC_DIR -name "*.java")
 
 # package
-cd $ARCHIVE_DIR
-jar -cvf ../$OUT_WAR *
-cd -
+jar -cvf $OUT_WAR -C $ARCHIVE_DIR/ .
 
 # remove archive dir again
 rm -rf $ARCHIVE_DIR
