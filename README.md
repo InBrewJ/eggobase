@@ -27,7 +27,7 @@
 
 ### Manually (with javac + -cp)
 
-
+- See `./build-w-javac.sh`
 
 ### With Ant
 
