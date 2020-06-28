@@ -8,6 +8,21 @@
 - It also serves as a reference of how to build simple stuff using Java + PostgreSQL
 - And, to boot, it serves as a playground for building CI/CD pipelines with zero consequences
 
+## Current state of CD pipeline
+
+- At present, the compile + build + run step is encapsulated within these steps:
+
+```
+docker-compose down && ./build-in-docker.sh && docker-compose build && docker-compose up -d
+```
+
+- `docker-compose down` -> stop what's running
+- `./build-in-docker.sh` -> compile the java into classes, create a WAR archive for Tomcat, put the WAR in a directory so the next stage can find it
+- `docker-compose build` -> use the WAR from the previous step to create a new version of Eggobase
+- `docker-compose up -d` -> start the new version
+
+Hopefully, a CD machine somewhere can do each of these steps. `docker-compose [up | down]` serve as placeholders for what would happen on the server that actually runs the app. 
+
 ## Generating the WAR
 
 - Inspiration from:

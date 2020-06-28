@@ -41,7 +41,7 @@
   </servlet-mapping>
   <context-param>
     <param-name>eggsRehomed</param-name>
-    <param-value>50000</param-value>
+    <param-value>45983</param-value>
   </context-param>
   <servlet>
     <description></description>

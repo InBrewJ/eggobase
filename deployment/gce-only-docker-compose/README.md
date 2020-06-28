@@ -35,6 +35,10 @@ gcloud compute addresses create eggobase-tomcat \
   --region us-central1	 
 ```
 
+SSH in:
+
+- `gcloud compute ssh eggobase-gce-only`
+
 Tear down:
 
 - `gcloud deployment-manager deployments delete eggobase-gce-only`
